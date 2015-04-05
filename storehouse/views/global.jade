@@ -1,0 +1,16 @@
+//-通用的框架的代码
+doctype
+html(lang="en")
+	head
+		meta(charset="utf-8")
+		meta(name="viewport",content="width=device-width")
+		title #{title}
+		include ./include/css
+		include ./include/javascript
+		link(href="../css/supportcss.css", rel="stylesheet")
+		block css
+	body(ng-app="cargoApp")
+		include ./include/header
+		block content
+		include ./include/footer
+		block javascript

@@ -1,0 +1,28 @@
+
+.bs-docs-nav .navbar-toggle .icon-bar{
+	background-color:#563d7c
+}
+.bs-docs-nav .navbar-header .navbar-toggle{
+	border-color:#fff
+}
+.bs-docs-nav .navbar-header .navbar-toggle:hover,.bs-docs-nav .navbar-header .navbar-toggle:focus{
+	background-color:#f9f9f9;border-color:#f9f9f9
+}
+.navbar-brand{
+	font-weight:bold;
+	color:#FFF;
+	background-color:#8B4500;
+}
+.nav a:hover{
+	color:#000;
+}
+.navbar-brand:hover{
+	color:#000;
+	background-color:#CDB38B;
+}
+li a {cursor:pointer;}
+.nav li ul { position:absolute; display:none;padding:0px;width:100%;text-align:center;}
+.nav li ul li { float:none;list-style-type:none;padding:10px 15px;}
+.nav li ul li a { border-right:none;cursor:pointer;}
+.nav li:hover ul{ display:block; }
+.nav li ul li:hover{background:#eee;}

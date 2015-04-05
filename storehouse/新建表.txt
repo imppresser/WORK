@@ -1,0 +1,50 @@
+在database的schemas里新建文件，文件名假设为'filename'
+里面粘贴代码：
+var mongoose = require('mongoose');
+var BaseSchema = require('./baseschema');
+var _ = require('underscore');
+//航班数据结构
+var 'Schemas名字' = new mongoose.Schema(_.extend({	
+		列名:属性名,
+		列名:属性名
+},BaseSchema.data));
+
+//每次存储数据前都会调用这个方法
+'Schemas名字'.pre('save', function(next){
+	BaseSchema.preSave(this);
+	next();
+});
+
+//静态函数
+'Schemas名字'.statics = BaseSchema.statics;
+
+module.exports = 'Schemas名字';
+
+======================================================
+
+在database的model里打开models/js
+里面增加代码：
+
+
+var mongoose = require('mongoose');
+//获取 schemas
+var CargoSchema = require('../schemas/cargo');
+--var 'Schemas名字' = require('../schemas/filename');
+
+
+var Models = {};
+//获取 Models
+Models.Cargo = mongoose.model('Cargo',CargoSchema);
+--Models.表名 = mongoose.model('表名','Schemas名字');
+
+
+
+//根据className获取model
+Models.getClass = function(className){
+	if(className=='Cargo')
+		return Models.Cargo;
+	--if(className=='表名')
+	--	return Models.表名
+}
+
+module.exports = Models;

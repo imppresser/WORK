@@ -1,0 +1,120 @@
+//-modify.jade
+extends ../global
+
+block javascript
+	script(src="../js/modify.js")
+	script(src="../js/select2.js")
+	script(src="../js/bootstrap-datepicker.js")
+
+block css
+	link(href="../css/select2.css", rel="stylesheet")
+	link(href="../css/datepicker3.css", rel="stylesheet")
+
+block content
+	div(id="alert",class="modal fade bs-example-modal-sm myAlert",tabindex="-1",role="dialog",aria-labelledby="mySmallModalLabel",aria-hidden="true")
+		div(class="modal-dialog modal-sm")
+			div(class="modal-content")
+				div.modal-header
+					button(type="button",class="close",data-dismiss="modal")
+						span(aria-hidden="true")&times;
+						span.sr-only Close
+					h4.modal-title 修改成功
+				.modal-body 修改成功
+				.modal-footer
+					button.btn-primary.btn(data-dismiss="modal") 确定
+	div(ng-controller="modifyCtrl")
+		.center
+			img(src="../css/modify_back.jpg")
+		.container
+			form.form-in
+				.form-group
+					.col-md-6(style="padding:10px")
+						label.control-label.addin-label(for="") 名称：
+						input#cargoname.form-control(type="text",placeholder="",ng-model="cargo.attributes.cargoname")
+					.col-md-6(style="padding:10px")
+						label.control-label.addin-label(for="") 数量：
+						input#cargonumber.form-control(type="text",placeholder="",ng-model="cargo.attributes.cargonumber")
+				.form-group
+					.col-md-6(style="padding:10px")
+						label.control-label.addin-label(for="") 大小：
+						input#cargosize.form-control(type="text",placeholder="",ng-model="cargo.attributes.cargosize")
+					.col-md-6(style="padding:10px")
+						label.control-label.addin-label(for="") 重量：
+						input#cargoweight.form-control(type="text",placeholder="",ng-model="cargo.attributes.cargoweight")
+				.form-group
+					.col-md-6(style="padding:10px")
+						label.control-label.addin-label(for="") 来源：
+						input#cargoaddress.form-control(type="text",placeholder="",ng-model="cargo.attributes.cargoaddress")
+					.col-md-6(style="padding:10px")
+						label.control-label.addin-label(for="") 等级：
+						#cargorank.select2-container.select-box(placeholder="等级",style="width:70%;margin:5px")
+				.form-group(style="padding:10px")
+					label.control-label.addin-label 备注：
+					textarea#cargoreminder.form-control(rows="3",style="width:83.5%;resize:none",ng-model="cargo.attributes.cargoreminder")
+				.form-group.text-center(style="padding:10px")
+					button.btn.btn-primary(style="width:83%",ng-click="save()") 提交
+			//-.row(style="padding:10px")
+				.col-xs-16.col-md-10
+					.row
+						.form-group.col-md-4
+							label.col-sm-2.control-label(for="inputPassword3") Password
+							.col-sm-10
+								input#inputPassword3.form-control(type="password",placeholder="Password")
+						.form-group
+							label.col-sm-2.control-label(for="") 名称：
+							.col-sm-10
+								input#inputPassword3.form-control(type="password",placeholder="")
+						.col-md-4
+							#cargoname
+								input(size="6",type="text",name="名称",value="")
+						.col-md-4
+							p 数量：
+						.col-md-4
+							#cargonumber
+								input(size="6",type="text",name="数量",value="")
+						.col-md-4
+							p 大小：
+						.col-md-4
+							#cargosize
+								input(size="6",type="text",name="大小",value="")
+						.col-md-4
+							p 重量：
+						.col-md-4
+							#cargoweight
+								input(size="6",type="text",name="重量",value="")
+					.row.form-group
+						.col-xs-2
+							p 来源地：
+						.col-xs-4
+							#cargoaddress
+								input(size="20",type="text",name="来源地",value="")
+						.col-xs-2
+							#cargorank.select2-container.select-box(placeholder="等级")
+					.row.form-group
+						.col-xs-2
+							p(style="padding:5px") 备注：
+						.col-xs-5
+							#cargoreminder
+								input(style="padding:10px",size="40",type="text",name="备注",value="")
+						.col-xs-5
+							//- label.col-sm-2.control-label
+							#startDatepicker.input-group.input-append.date.datepicker(data-date="",data-date-format="yyyy-mm-dd")
+								input.span2.form-control(size="16",placeholder="入库时间",type="text",value="",readonly="")
+								span.add-on.input-group-addon
+									i.glyphicon.glyphicon-calendar
+				.col-xs-4.col-md-2
+					a.btn.btn-primary(id="add") 修改
+
+
+
+
+
+
+	//- p title is #{title}
+	//- p name is #{name}
+	//- p array #{arrayStr}
+
+	//- each ite in arrayStr
+	//- 	p #{ite}
+
+	//- p Obj is #{obj.as}

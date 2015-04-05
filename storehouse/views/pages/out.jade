@@ -1,0 +1,96 @@
+//-out.jade
+extends ../global
+
+block javascript
+	script(src="../js/out.js")
+	script(src="../js/select2.js")
+	script(src="../js/bootstrap-datepicker.js")
+
+block css
+	link(href="../css/select2.css", rel="stylesheet")
+	link(href="../css/datepicker3.css", rel="stylesheet")
+		
+block content
+	div(id="alertRank",class="modal fade bs-example-modal-sm myAlert",tabindex="-1",role="dialog",aria-labelledby="mySmallModalLabel",aria-hidden="true")
+		div(class="modal-dialog modal-sm")
+			div(class="modal-content")
+				div.modal-header
+					button(type="button",class="close",data-dismiss="modal")
+						span(aria-hidden="true")&times;
+						span.sr-only Close
+					h4.modal-title 查询失败
+				.modal-body 请选择相应等级类型（A,B,C,D）！
+				.modal-footer
+					button.btn-primary.btn(data-dismiss="modal") 确定
+	div(ng-controller="outCtrl")
+		.center
+			img(src="../css/out_back.jpg")
+		.container
+			.row(style="padding:10px")
+				.col-md-6
+					label.control-label.addin-label(for="") 查询类型：
+					#searchT.select2-container.select-box(placeholder="查询类型",style="width:70%;margin:5px")
+				.col-md-4
+					input#searchV.form-control(type="text",style="height: 28px;margin-top:4px",placeholder="查询信息")
+				.col-md-2			
+					a.btn.btn-primary(ng-click="search()") 查询
+					a.btn.btn-primary(style="margin-left:20px",ng-click="searchAll()") 查询所有
+		.container
+			.row
+				table.table.table-hover.table-bordered
+					thead
+						tr
+							th.text-center 物品名称
+							th.text-center 数量
+							th.text-center 大小(m3)
+							th.text-center 重量(kg)
+							th.text-center 来源地
+							th.text-center 等级
+							th.text-center 出库日期
+							th.text-center 详情
+							th.text-center 删除
+					tbody
+						tr(ng-repeat="item in cargoout")
+								td.text-center
+									p {{item.attributes.cargoname}}
+								td.text-center
+									p {{item.attributes.cargonumber}}
+								td.text-center
+									p {{item.attributes.cargosize}}
+								td.text-center
+									p {{item.attributes.cargoweight}}
+								td.text-center
+									p {{item.attributes.cargoaddress}}
+								td.text-center
+									p {{item.attributes.cargorank}}
+								td.text-center
+									p {{item.attributes.cargooutdate}}
+								td.text-center: a(target="_blank", href="/detailout/{{item.attributes._id}}")
+										button.btn.btn-primary.del(type="button", data-id="{{item.attributes._id}}") 详情
+								td.text-center: button.btn.btn-primary.del(type="button", data-id="{{item.attributes._id}}",ng-click="deleteItem($index)") 删除
+			nav.text-center
+				ul.pagination
+					//- li.disabled
+					//- 	a(href="#") <<
+					//- li.disabled
+					//- 	a(href="#") <
+					li(ng-repeat="item in pages",ng-class="{'active':activePage[{{$index}}]}")
+						a(href="#",ng-click="queryByPage(item)") {{item}}
+					//-li.active
+						a(href="#") >
+					//-li
+						a(href="#") >>
+
+
+
+
+
+
+	//- p title is #{title}
+	//- p name is #{name}
+	//- p array #{arrayStr}
+
+	//- each ite in arrayStr
+	//- 	p #{ite}
+
+	//- p Obj is #{obj.as}

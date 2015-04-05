@@ -1,0 +1,55 @@
+//-detailout.jade
+extends ../global
+
+block javascript
+	script(src="../js/detailout.js")
+	script(src="../js/select2.js")
+	script(src="../js/bootstrap-datepicker.js")
+
+block css
+	link(href="../css/select2.css", rel="stylesheet")
+	link(href="../css/datepicker3.css", rel="stylesheet")
+
+block content
+	div(ng-controller="detailoutCtrl")
+		.center
+			img(src="../css/out_back.jpg")
+		.container
+			.ul
+				.li
+					.col-md-1(style="padding:10px")
+						label.control-label.addin-label(style="margin-top:7px",for="") 名称：
+					.col-md-5(style="padding:10px")
+						textarea#cargoname.form-control(type="text",readonly="readonly",style="width:80%;height:35px;border:0px;resize:none",placeholder="",ng-model="cargoout.attributes.cargoname")
+					.col-md-1(style="padding:10px")
+						label.control-label.addin-label(style="margin-top:7px",for="") 数量：
+					.col-md-5(style="padding:10px")
+						textarea#cargonumber.form-control(type="text",readonly="readonly",style="width:80%;height:35px;border:0px;resize:none",placeholder="",ng-model="cargoout.attributes.cargonumber")
+				.li
+					.col-md-1(style="padding:10px")
+						label.control-label.addin-label(style="margin-top:7px",for="") 大小：
+					.col-md-5(style="padding:10px")
+						textarea#cargosize.form-control(type="text",readonly="readonly",style="width:80%;height:35px;border:0px;resize:none",placeholder="",ng-model="cargoout.attributes.cargosize")
+					.col-md-1(style="padding:10px")
+						label.control-label.addin-label(style="margin-top:7px",for="") 重量：
+					.col-md-5(style="padding:10px")
+						textarea#cargoweight.form-control(type="text",readonly="readonly",style="width:80%;height:35px;border:0px;resize:none",placeholder="",ng-model="cargoout.attributes.cargoweight")
+				.li
+					.col-md-1(style="padding:10px")
+						label.control-label.addin-label(style="margin-top:7px",for="") 来源：
+					.col-md-5(style="padding:10px")
+						textarea#cargoaddress.form-control(type="text",readonly="readonly",style="width:80%;height:35px;border:0px;resize:none",placeholder="",ng-model="cargoout.attributes.cargoaddress")
+					.col-md-1(style="padding:10px")
+						label.control-label.addin-label(style="margin-top:7px",for="") 等级：
+					.col-md-1(style="padding:10px")
+						textarea#cargorank.form-control(type="text",readonly="readonly",style="width:66%;height:35px;border:0px;resize:none",placeholder="",ng-model="cargoout.attributes.cargorank")
+						<!--#cargorank.select2-container.select-box(placeholder="等级",readonly="readonly",style="width:80%;margin-top:5px")-->
+					.col-md-1(style="padding:10px")
+						label.control-label.addin-label(style="margin-top:7px",for="") 日期：
+					.col-md-3(style="padding:10px")
+						textarea#cargooutdate.form-control(type="text",readonly="readonly",style="width:66%;height:35px;border:0px;resize:none",placeholder="",ng-model="cargoout.attributes.cargooutdate")
+				.li
+					.col-md-1(style="padding:10px")
+						label.control-label.addin-label(style="margin-top:7px") 备注：
+					.col-md-11(style="padding:10px")
+						textarea#cargoreminder.form-control(rows="3",readonly="readonly",style="width:91%;border:0px;resize:none",ng-model="cargoout.attributes.cargoreminder")

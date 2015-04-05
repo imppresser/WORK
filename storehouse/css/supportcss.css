@@ -1,0 +1,72 @@
+.center{
+	text-align: center;
+}
+
+.btn-primary, .btn-primary:focus,.btn-primary:active, .btn-primary.active {
+	color: #fff;
+	background-color: #8B4500;
+	border-color: #8B4500;
+}
+
+.btn-primary:hover {
+	color: #fff;
+	background-color: #CDB38B;
+	border-color: #CDB38B;
+}
+
+.navbar-nav>li>a {
+	color: #CDB38B;
+}
+
+.myAlert{
+	padding-top:10%;
+}
+
+.addin-label {
+	margin-left:15px;
+	margin-right:15px;
+}
+
+.form-in .form-control {
+	display: inline-block;
+	width:70%;
+	vertical-align: middle;
+}
+
+.pagination>.active>a, .pagination>.active>span, .pagination>.active>a:hover, .pagination>.active>span:hover, .pagination>.active>a:focus, .pagination>.active>span:focus {
+	z-index: 2;
+	color: #fff;
+	background-color: #8B4500;
+	border-color: #8B4500;
+	cursor: default;
+}
+
+.pagination>li>a, .pagination>li>span {
+	position: relative;
+	float: left;
+	padding: 6px 12px;
+	line-height: 1.42857143;
+	text-decoration: none;
+	color: #8B4500;
+	background-color: #fff;
+	border: 1px solid #ddd;
+	margin-left: -1px;
+}
+.pagination>li>a:hover, .pagination>li>span:hover {
+	position: relative;
+	float: left;
+	padding: 6px 12px;
+	line-height: 1.42857143;
+	text-decoration: none;
+	color: #CDB38B;
+	background-color: #ddd;
+	border: 1px solid #ddd;
+	margin-left: -1px;
+}
+
+.alertInside {
+	margin:10px;
+}
+.nav li ul li a{
+	color: #CDB38B;
+}
